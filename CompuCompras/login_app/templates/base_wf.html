@@ -26,18 +26,18 @@
 				<li class="desplegable">
 					<button class="boton_cuenta"><img class="icon" src="{%static 'images/user.png'%}" alt="user"></button>
 					<ul class="acciones_cuenta">
-						<li class="iniciar-sesion"><a href="login.html">Iniciar Sesión</a></li>
-						<li class="registrar"><a href="sign-up.html">Registrarse</a></li>
+						<li class="iniciar-sesion"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+						<li class="registrar"><a href="{% url 'sign-up' %}">Registrarse</a></li>
 					</ul>
 				</li>
 			</ul>
 		</nav>
 	<nav class="nav-local">
 		<ul>
-			<li><a href="index.html">Computadoras destacadas</a></li>
-			<li><a href="ofertas.html">Ofertas especiales</a></li>
-			<li><a href="nuevos.html">Novedades</a></li>
-			<li><a href="#contacto">Contacto</a></li>
+			<li><a href="{% url 'index' %}">Computadoras destacadas</a></li>
+			<li><a href="{% url 'ofertas' %}">Ofertas especiales</a></li>
+			<li><a href="{% url 'nuevos' %}">Novedades</a></li>
+			
 		</ul>
 	</nav>
 	</header>

@@ -8,7 +8,7 @@ def login(request):
 def register(request):
     return render(request, 'crearCuenta.html')
 
-def sing_up(request):
+def sign_up(request):
     return render(request, 'sign-up.html')
 
 

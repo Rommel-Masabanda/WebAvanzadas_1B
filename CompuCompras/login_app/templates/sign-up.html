@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="styles/style-login.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
+
+    <script>
+        var firebaseConfig = {
+        apiKey: "AIzaSyDNMpqAyYEptbHS-HUfy85ofqZAIb6cJ6Y",
+        authDomain: "compucompras-cf98d.firebaseapp.com",
+        projectId: "compucompras-cf98d",
+        storageBucket: "compucompras-cf98d.appspot.com",
+        messagingSenderId: "818418003730",
+        appId: "1:818418003730:web:b85e4c6916839e5bb38dcb"
+        };
+    
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+</head>
+<body>
+    <header>
+		<nav class="nav-global">
+			<ul>
+				<li><h1>Bienvenidos a nuestra tienda de computadoras</h1></li>
+			</ul>
+			<ul class="menu-global">	
+				<li>
+					<button><img class="icon" src="imagenes/shopping-cart.png" alt="shopping-cart"></button>
+				</li>
+				<li class="desplegable">
+					<button class="boton_cuenta"><img class="icon" src="imagenes/user.png" alt="user"></button>
+					<ul class="acciones_cuenta">
+						<li class="iniciar-sesion"><a href="login.html">Iniciar Sesión</a></li>
+						<li class="registrar"><a href="sign-up.html">Registrarse</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+    
+    <main>
+        <form>
+            
+            <label for="username">Nombre:</label>
+            <input type="text" id="username" placeholder="Ingrese usuario" name="username" required>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" placeholder="Ingrese Email" id="email">
+            <label for="password">Contraseña:</label>
+            <input type="password" placeholder="Ingrese Password" id="password">
+            <button type="submit">Crear Cuenta</button>
+
+            <!-- <label for="username">Nombre:</label>
+            <input type="text" id="username" name="username" required><br>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" email required><br>
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" pattern="(\w){8,20}" required><br>
+            <label for="password_confirm">Confirmar contraseña:</label>
+            <input type="password" id="password_confirm" name="password_confirm" required><br>
+            <input type="submit" value="Registrarse" onclick="verificar()"> -->
+        </form>
+    </main>
+
+    <script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            return userCredential.user.updateProfile({
+              displayName: name
+            });
+          })
+        .then((userCredential) => {
+          // La cuenta fue creada exitosamente, redirigir al usuario a la página principal
+          alert('Usuario registrado correctamente.');
+          window.location.href = "index.html";
+        })
+        .catch((error) => {
+          // Hubo un error durante la creación de la cuenta, mostrar un mensaje de error al usuario
+          const errorMessage = error.message;
+          alert(errorMessage);
+        });
+        });
+    </script>
+
+</body>
+
+</html>

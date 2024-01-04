@@ -1,0 +1,132 @@
+body {
+	background-image: url('../imagenes/backgraund.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+  }
+form {
+    background-color: #eee;
+    width: 300px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #202123;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #3d3d3d;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	display: grid;
+	background-color: #202123;
+	color: white;
+}
+
+main {
+    padding: 40px;
+}
+
+h1 {
+	margin: 0;
+}
+
+.nav-global {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+a {
+	color: #202123;
+	text-decoration: none;
+}
+
+button {
+	background-color: #202123;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+.boton_cuenta {
+	margin-right: 100px;
+	font-size: 16px;
+}
+
+.acciones_cuenta a{
+	color: white;
+}
+
+.acciones_cuenta li.iniciar-sesion{
+	border-bottom: 1px solid white;
+}
+
+.acciones_cuenta {
+	display: none;
+	align-items: center;
+	padding: 0px 15px;
+	background-color: #202123;
+	position: absolute;
+	width: 145px;
+}
+
+.acciones_cuenta li{
+	margin: 0px;
+	padding: 20px;
+}
+
+
+.desplegable:hover .acciones_cuenta{
+	display: block;
+}
+
+.desplegable a:hover {
+	font-weight: bold;
+}
+
+.icon {
+	width: 30px;
+	height: 30px;
+}

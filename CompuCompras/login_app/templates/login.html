@@ -1,51 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar sesión</title>
-    <link rel="stylesheet" href="styles/style-login.css">
-	<!-- FireBase -->
-	<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-auth.js"></script>
-	<!-- Configuracion firebase -->
-	<script>
-		// Your web app's Firebase configuration
-		var firebaseConfig = {
-			apiKey: "AIzaSyDNMpqAyYEptbHS-HUfy85ofqZAIb6cJ6Y",
-	  authDomain: "compucompras-cf98d.firebaseapp.com",
-	  projectId: "compucompras-cf98d",
-	  storageBucket: "compucompras-cf98d.appspot.com",
-	  messagingSenderId: "818418003730",
-	  appId: "1:818418003730:web:b85e4c6916839e5bb38dcb"
-		};
-		// Initialize Firebase
-		firebase.initializeApp(firebaseConfig);
-	  </script>
-</head>
+{%extends 'base_wf.html'%}
 
-<body>
-    <header>
-		<nav class="nav-global">
-			<ul>
-				<li><h1>Bienvenidos a nuestra tienda de computadoras</h1></li>
-			</ul>
-			<ul class="menu-global">	
-				<li>
-					<button><img class="icon" src="imagenes/shopping-cart.png" alt="shopping-cart"></button>
-				</li>
-				<li class="desplegable">
-					<button class="boton_cuenta"><img class="icon" src="imagenes/user.png" alt="user"></button>
-					<ul class="acciones_cuenta">
-						<li class="iniciar-sesion"><a href="login.html">Iniciar Sesión</a></li>
-						<li class="registrar"><a href="sign-up.html">Registrarse</a></li>
-					</ul>
-				</li>
-			</ul>
-		</nav>
-	</header>
-    
+    {%block content%}
     <main>
         <form action="/login" method="post">
             <input type="email" placeholder="Ingrese email" id="email">
@@ -53,7 +8,7 @@
     		<button type="submit">Iniciar Sesión</button>
         </form>
     </main>
-
+	
 	<script>
 		const form = document.querySelector('form');
 		form.addEventListener('submit', (event) => {
@@ -74,6 +29,4 @@
 			});
 		});
 	  </script>
-
-</body>
-</html>
+	{%endblock%}

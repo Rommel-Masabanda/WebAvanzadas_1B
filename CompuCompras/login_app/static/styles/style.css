@@ -1,0 +1,172 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	display: grid;
+	background-color: #202123;
+	color: white;
+}
+
+h1 {
+	margin: 0;
+}
+
+.nav-local {
+	background-color: #eee;
+	padding: 0px 10px;
+	order: 3;
+}
+
+.nav-global {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 15px;
+}
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+.nav-local li {
+	margin-right: 20px;
+	padding: 10px 0px;
+}
+
+.nav-local a {
+	color: #202123;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.nav-local a:hover {
+	border-bottom: 3px solid #00aecd;
+}
+
+.nav-local ul, .nav-global ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+.nav-global h1 {
+	margin: 0px;
+	font-family: Arial, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+
+main {
+	padding: 20px;
+}
+
+section {
+	margin-bottom: 20px;
+}
+
+h2 {
+	margin-top: 0;
+}
+
+.computadora {
+	display: flex;
+	flex-direction: column;
+	align-items: baseline;
+
+	margin-bottom: 20px;
+}
+
+img {
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+	margin-right: 20px;
+}
+
+p {
+	margin: 0;
+}
+
+button {
+	background-color: #202123;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+footer {
+	background-color: #202123;
+	color: white;
+	padding: 10px;
+	text-align: center;
+}
+
+
+
+.boton_cuenta {
+	margin-right: 100px;
+	font-size: 16px;
+}
+
+.acciones_cuenta a{
+	color: white;
+	text-decoration: none;
+}
+
+.acciones_cuenta li.iniciar-sesion{
+	border-bottom: 1px solid white;
+}
+
+.acciones_cuenta {
+	display: none;
+	padding: 0px 15px;
+	background-color: #202123;
+	position: absolute;
+	width: 145px;
+}
+
+.boton_cuenta ul {
+	padding: 0px 15px;
+}
+
+.acciones_cuenta li{
+	margin: 0px;
+	padding: 20px;
+}
+
+
+.desplegable:hover .acciones_cuenta{
+	display: block;
+}
+
+.desplegable a:hover {
+	font-weight: bold;
+}
+
+.icon {
+	width: 30px;
+	height: 30px;
+	margin: 0px;
+}
+
+.banner {
+    margin: 0 auto;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    height: 500px;
+    width: 100%;
+	margin: 50px 0px;
+	height: 100%; width: 100%;
+}
+
+.banner img {
+    height: 100%;
+    width: 100%;
+}

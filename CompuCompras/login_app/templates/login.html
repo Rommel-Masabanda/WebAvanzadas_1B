@@ -2,9 +2,9 @@
 
     {%block content%}
     <main>
-        <form action="/login" method="post">
-            <input type="email" placeholder="Ingrese email" id="email">
-    		<input type="password" placeholder="Ingrese correo electrónico" id="password">
+        <form action="" method="post">
+            {% csrf_token %}
+			{{form}}
     		<button type="submit">Iniciar Sesión</button>
         </form>
     </main>

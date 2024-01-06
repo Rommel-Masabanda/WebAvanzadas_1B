@@ -26,8 +26,14 @@
 				<li class="desplegable">
 					<button class="boton_cuenta"><img class="icon" src="{%static 'images/user.png'%}" alt="user"></button>
 					<ul class="acciones_cuenta">
-						<li class="iniciar-sesion"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
-						<li class="registrar"><a href="{% url 'sign-up' %}">Registrarse</a></li>
+
+						{% if user.is_authenticated %}
+							<li class="cerrar-sesion"><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+						{% else %}
+							<li class="iniciar-sesion"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+							<li class="registrar"><a href="{% url 'sign-up' %}">Registrarse</a></li>
+						{% endif %}
+						
 					</ul>
 				</li>
 			</ul>

@@ -27,7 +27,7 @@ class VLogearse(View):
             messages.error(request, "Información incorrecta")
         
 
-        return render(request, "login/login.html", {"form": form})
+        return render(request, "login.html", {"form": form})
 
 
 class VRegistrase(View):
@@ -52,7 +52,9 @@ class VRegistrase(View):
 def register(request):
     return render(request, 'crearCuenta.html')
 
-def sign_up(request):
-    return render(request, 'sign-up.html')
+def cerrar_sesion(request):
+    logout(request)
+    return redirect('index')
+
 
 

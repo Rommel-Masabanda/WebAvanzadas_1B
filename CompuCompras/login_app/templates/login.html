@@ -2,31 +2,11 @@
 
     {%block content%}
     <main>
-        <form action="" method="post">
+        <form action="{% url 'login' %}" method="post">
             {% csrf_token %}
 			{{form}}
     		<button type="submit">Iniciar Sesión</button>
         </form>
     </main>
 	
-	<script>
-		const form = document.querySelector('form');
-		form.addEventListener('submit', (event) => {
-		  event.preventDefault();
-	
-		  const email = document.getElementById("email").value;
-		  const password = document.getElementById("password").value;
-	
-		  firebase.auth().signInWithEmailAndPassword(email, password)
-			.then((userCredential) => {
-			  // El inicio de sesión fue exitoso, redirigir al usuario a la página principal
-			  window.location.href = "index.html";
-			})
-			.catch((error) => {
-			  // Hubo un error durante el inicio de sesión, mostrar un mensaje de error al usuario
-			  const errorMessage = error.message;
-			  alert(errorMessage);
-			});
-		});
-	  </script>
 	{%endblock%}

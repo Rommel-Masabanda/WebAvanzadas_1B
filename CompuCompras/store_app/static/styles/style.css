@@ -170,3 +170,114 @@ footer {
     height: 100%;
     width: 100%;
 }
+
+/* Boton Chat */
+.chat-div > button{
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	height: 35px;
+	width: 35px;
+	background-color: lightgreen;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 17px;
+}
+.chat-div > button:hover{
+	background-color: lightgray;
+	color: gray;
+	transition: 0.25s;
+}
+.img-chat{
+	height: 25px;
+	width: 25px;
+	margin-left: 18px;
+}
+
+/* Carrito */
+.btn-comprar-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	margin: 10px;
+	border-radius: 12px;
+}
+#btn-conf-compra{
+	border-radius: 12px;
+}
+#btn-conf-compra:hover{
+	background-color: lightgray;
+	color: gray;
+	transition: 0.25s;	
+}
+.body-margin-start{
+	margin-top: 25px;
+}
+
+.informacion-compra{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.lista-productos{
+	display: flex;
+	flex-direction: column;	
+}
+.producto-item{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10%;
+	margin-bottom: 20px;
+}
+.img-producto-compra{
+	width: 100px;
+}
+.img-producto-compra>.img{
+	width: 99px;
+}
+.info-producto-compra{
+	width: 400px;
+}
+
+
+.btn-eliminar-div{
+	display: flex;
+	flex-direction: row;	
+	justify-content: space-between;
+	align-items: center;
+}
+@media (max-width: 500px) {
+	.lista-productos{
+		display: flex;
+		flex-direction: column;
+		/* margin-bottom: 30px; */
+	}
+	
+}
+.btn-eliminar-compra{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: lightcoral;
+	color: rgb(68, 68, 68);
+	border-radius: 12px;
+	padding: 3px 12px 3px 12px;
+}
+.btn-eliminar-compra:hover{
+	color:black;
+	background-color: gray;
+	transition: 0.25s;
+}
+
+.total-cantidad{
+	font-size: 18px;
+	font-weight: 500;
+}
+.total-final{
+	font-size: 22px;
+	font-weight: bold;
+}

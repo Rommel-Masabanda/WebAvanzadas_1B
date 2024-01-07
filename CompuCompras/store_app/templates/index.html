@@ -1,14 +1,10 @@
 
 {%extends 'base_f.html'%}
-{% load static %}
+
 
 	{% block content %}
 	<!-- Boton Chat -->
-	<div class="chat-div">
-		<button>
-			<img class="img-chat" src="https://img.icons8.com/ios/50/chat.png" alt="chat"/>
-		</button>
-	</div>
+	
 	
 	<div class="banner">
 		<a href="https://www.example.com " target="_blank">
@@ -19,15 +15,16 @@
 		<h2>Computadoras destacadas</h2>
 		<section id="destacados" class="d-flex justify-content-around">
 			{%for computadora in productos%}
+			{% if computadora.categoria == "destacada" %}
 			<div class="computadora align-items-center">
-				<img src="{{ producto.imagen.url }}" alt="{{ producto.titulo }}">
+				<img src="{{ computadora.imagen.url }}" alt="{{ computadora.titulo }}">
 				<h3>{{computadora.titulo}}</h3>
 				<p>{{computadora.descripcion}}</p>
 				<p>Precio: ${{computadora.precio}}</p>
 				<button>Añadir al carrito</button>
 			</div>
+			{% endif %}
 			{%endfor%}
-
 			
 		</section>
 		<section id="contacto">

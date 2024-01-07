@@ -1,4 +1,4 @@
-{%extends 'base_wf.html'%}
+{%extends 'base_f.html'%}
     {%block content%}
 
     
@@ -6,10 +6,11 @@
 
     <div class="informacion-compra">
         <div class="lista-productos">
+            {%for producto in carrito%}
             <!-- Producto 1 -->
             <div class="producto-item">
                 <div class="img-producto-compra">
-                    <img src="imagenes/computadora1.jpg" alt="Computadora 1">
+                    <img src="{{computadora.imagen.url}}" alt="Computadora 1">
                 </div>
                 <div class="info-producto-compra">
                     <h3>Computadora 1</h3>
@@ -21,21 +22,9 @@
                 </div>
             </div>
 
-            <!-- Producto 2 -->
-            <div class="producto-item">
-                <div class="img-producto-compra">
-                    <img src="imagenes/computadora1.jpg" alt="Computadora 1">
-                </div>
-                <div class="info-producto-compra">
-                    <h3>Computadora 1</h3>
-                    <p>Descripción de la computadora 1</p>
-                    <p>Precio: $999</p>
-                </div>
-                <div class="btn-eliminar-div">
-                    <button class="btn-eliminar-compra">Eliminar</button>
-                </div>
-            </div>
+            {%endfor%}
 
+            
         </div>  
     
         <div class="total-compra">
@@ -50,5 +39,9 @@
     <div class="btn-comprar-div">
         <button id="btn-conf-compra">Aceptar compra</button>
     </div>
+    <section id="contacto">
+		<h2>Contacto</h2>
+		<p>Puedes contactarnos a través de nuestro correo electrónico <a href="mailto:ventas@computadoras.com">ventas@computadoras.com</a> o a través de nuestro número de teléfono 555-555-5555.</p>
+	</section>
 
     {%endblock%}

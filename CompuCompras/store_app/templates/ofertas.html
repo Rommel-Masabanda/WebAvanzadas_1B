@@ -1,38 +1,22 @@
 {% extends 'base_f.html' %}
 {% block content %}
+
     <main>
 		<h2>Ofertas especiales</h2>
-        <section class="ofertas d-flex justify-content-around" >
-			<div class="computadora">
-				<img src="imagenes/computadora3.jpg" alt="Computadora 3">
-				<h3>Computadora 3</h3>
-				<p>Descripción de la computadora 3</p>
-				<p>Precio: $799 (oferta especial)</p>
+        <section id="novedades" class="d-flex justify-content-around">
+			{%for computadora in productos%}
+			{% if computadora.categoria == "oferta" %}
+			<div class="computadora align-items-center">
+				<img src="{{ computadora.imagen.url }}" alt="{{ computadora.titulo }}">
+				<h3>{{computadora.titulo}}</h3>
+				<p>{{computadora.descripcion}}</p>
+				<p>Precio: ${{computadora.precio}}</p>
 				<button>Añadir al carrito</button>
 			</div>
-			<div class="computadora">
-				<img src="imagenes/computadora4.jpg" alt="Computadora 4">
-				<h3>Computadora 4</h3>
-				<p>Descripción de la computadora 4</p>
-                <p>Precio: $1099 (oferta especial)</p>
-			    <button>Añadir al carrito</button>
-		    </div>
-			<div class="computadora">
-				<img src="imagenes/computadora3.jpg" alt="Computadora 3">
-				<h3>Computadora 3</h3>
-				<p>Descripción de la computadora 3</p>
-				<p>Precio: $799 (oferta especial)</p>
-				<button>Añadir al carrito</button>
-			</div>
-			<div class="computadora">
-				<img src="imagenes/computadora4.jpg" alt="Computadora 4">
-				<h3>Computadora 4</h3>
-				<p>Descripción de la computadora 4</p>
-                <p>Precio: $1099 (oferta especial)</p>
-			    <button>Añadir al carrito</button>
-		    </div>
+			{% endif %}
+			{%endfor%}
 			
-	    </section>
+		</section>
         <section id="contacto">
             <h2>Contacto</h2>
             <p>Puedes contactarnos a través de nuestro correo electrónico <a href="mailto:ventas@computadoras.com">ventas@computadoras.com</a> o a través de nuestro número de teléfono 555-555-5555.</p>

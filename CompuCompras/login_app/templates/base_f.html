@@ -20,8 +20,10 @@
 			</ul>
 			<ul class="menu-global">	
 				<li>
+				<a href="{%url 'carrito'%}">
 					<button><img class="icon" src="{%static 'images/shopping-cart.png'%}" alt="shopping-cart"><span class="position-absolute top-1 start-5 translate-middle badge rounded-pill bg-danger">+3</span>
 					</button>
+				</a>
 				</li>
 				<li class="desplegable">
 					<button class="boton_cuenta"><img class="icon" src="{%static 'images/user.png'%}" alt="user"></button>
@@ -47,6 +49,11 @@
 		</ul>
 	</nav>
 	</header>
+	<div class="chat-div">
+		<button>
+			<img class="img-chat" src="https://img.icons8.com/ios/50/chat.png" alt="chat"/>
+		</button>
+	</div>
 	{%block content%} {%endblock%}
     <footer>
         <p>Copyright 2023, Compu Compras S.A. Todos los derechos reservados.</p>

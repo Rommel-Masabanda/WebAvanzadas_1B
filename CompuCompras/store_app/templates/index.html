@@ -1,4 +1,6 @@
+
 {%extends 'base_f.html'%}
+{% load static %}
 
 	{% block content %}
 	<div class="chat-div">
@@ -16,35 +18,17 @@
 	<main>
 		<h2>Computadoras destacadas</h2>
 		<section id="destacados" class="d-flex justify-content-around">
+			{%for computadora in productos%}
 			<div class="computadora align-items-center">
-				<img src="imagenes/computadora1.jpg" alt="Computadora 1">
-				<h3>Computadora 1</h3>
-				<p>Descripción de la computadora 1</p>
-				<p>Precio: $999</p>
+				<img src="{{ producto.imagen.url }}" alt="{{ producto.titulo }}">
+				<h3>{{computadora.titulo}}</h3>
+				<p>{{computadora.descripcion}}</p>
+				<p>Precio: ${{computadora.precio}}</p>
 				<button>Añadir al carrito</button>
 			</div>
-			<div class="computadora align-items-center">
-				<img src="imagenes/computadora2.jpg" alt="Computadora 2">
-				<h3>Computadora 2</h3>
-				<p>Descripción de la computadora 2</p>
-				<p>Precio: $1299</p>
-				<button>Añadir al carrito</button>
-			</div>
-			<div class="computadora align-items-center">
-				<img src="imagenes/computadora1.jpg" alt="Computadora 1">
-				<h3>Computadora 1</h3>
-				<p>Descripción de la computadora 1</p>
-				<p>Precio: $999</p>
-				<button>Añadir al carrito</button>
-			</div>
-			<div class="computadora align-items-center">
-				<img src="imagenes/computadora2.jpg" alt="Computadora 2">
-				<h3>Computadora 2</h3>
-				<p>Descripción de la computadora 2</p>
-				<p>Precio: $1299</p>
-				<button>Añadir al carrito</button>
-			</div>
+			{%endfor%}
 
+			
 		</section>
 		<section id="contacto">
 			<h2>Contacto</h2>

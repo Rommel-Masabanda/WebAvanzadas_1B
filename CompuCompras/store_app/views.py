@@ -10,7 +10,3 @@ def ofertas(request):
 def nuevos(request):
     return render(request, 'nuevos.html')
 
-def get_productos(request):
-    productos = Producto.objects.all()
-    return render(request, 'index.html', {'productos': productos})
-

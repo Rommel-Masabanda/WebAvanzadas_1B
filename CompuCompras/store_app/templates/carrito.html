@@ -1,0 +1,54 @@
+{%extends 'base_wf.html'%}
+    {%block content%}
+
+    
+    <div class="body-margin-start"></div>
+
+    <div class="informacion-compra">
+        <div class="lista-productos">
+            <!-- Producto 1 -->
+            <div class="producto-item">
+                <div class="img-producto-compra">
+                    <img src="imagenes/computadora1.jpg" alt="Computadora 1">
+                </div>
+                <div class="info-producto-compra">
+                    <h3>Computadora 1</h3>
+                    <p>Descripción de la computadora 1</p>
+                    <p>Precio: $999</p>
+                </div>
+                <div class="btn-eliminar-div">
+                    <button class="btn-eliminar-compra">Eliminar</button>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="producto-item">
+                <div class="img-producto-compra">
+                    <img src="imagenes/computadora1.jpg" alt="Computadora 1">
+                </div>
+                <div class="info-producto-compra">
+                    <h3>Computadora 1</h3>
+                    <p>Descripción de la computadora 1</p>
+                    <p>Precio: $999</p>
+                </div>
+                <div class="btn-eliminar-div">
+                    <button class="btn-eliminar-compra">Eliminar</button>
+                </div>
+            </div>
+
+        </div>  
+    
+        <div class="total-compra">
+            <p class="total-cantidad">Cantidad de articulos = 1</p>
+            <p class="total-final">TOTAL: $1500.22</p>
+
+        </div>
+
+    </div>
+    
+
+    <div class="btn-comprar-div">
+        <button id="btn-conf-compra">Aceptar compra</button>
+    </div>
+
+    {%endblock%}

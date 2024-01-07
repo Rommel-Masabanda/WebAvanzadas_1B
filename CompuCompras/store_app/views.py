@@ -10,3 +10,5 @@ def ofertas(request):
 def nuevos(request):
     return render(request, 'nuevos.html')
 
+def carrito(request):
+    return render(request, 'carrito.html')

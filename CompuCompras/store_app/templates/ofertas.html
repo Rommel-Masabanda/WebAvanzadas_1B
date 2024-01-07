@@ -4,18 +4,19 @@
     <main>
 		<h2>Ofertas especiales</h2>
         <section id="novedades" class="d-flex justify-content-around">
-			{%for computadora in productos%}
-			{% if computadora.categoria == "oferta" %}
-			<div class="computadora align-items-center">
-				<img src="{{ computadora.imagen.url }}" alt="{{ computadora.titulo }}">
-				<h3>{{computadora.titulo}}</h3>
-				<p>{{computadora.descripcion}}</p>
-				<p>Precio: ${{computadora.precio}}</p>
-				<button>Añadir al carrito</button>
+			<div class="cuadricula-de-computadoras">
+				{%for computadora in productos%}
+				{% if computadora.categoria == "oferta" %}
+				<div class="computadora align-items-center">
+					<img src="{{ computadora.imagen.url }}" alt="{{ computadora.titulo }}">
+					<h3>{{computadora.titulo}}</h3>
+					<p>{{computadora.descripcion}}</p>
+					<p>Precio: ${{computadora.precio}}</p>
+					<button>Añadir al carrito</button>
+				</div>
+				{% endif %}
+				{%endfor%}
 			</div>
-			{% endif %}
-			{%endfor%}
-			
 		</section>
         <section id="contacto">
             <h2>Contacto</h2>

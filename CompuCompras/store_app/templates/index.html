@@ -14,18 +14,18 @@
 	<main>
 		<h2>Computadoras destacadas</h2>
 		<section id="destacados" class="d-flex justify-content-around">
-			{%for computadora in productos%}
-			{% if computadora.categoria == "destacada" %}
-			<div class="computadora align-items-center">
-				<img src="{{ computadora.imagen.url }}" alt="{{ computadora.titulo }}">
-				<h3>{{computadora.titulo}}</h3>
-				<p>{{computadora.descripcion}}</p>
-				<p>Precio: ${{computadora.precio}}</p>
-				<button>Añadir al carrito</button>
-			</div>
-			{% endif %}
-			{%endfor%}
-			
+			<div class="cuadricula-de-computadoras">
+				{%for computadora in productos%}
+				{% if computadora.categoria == "destacada" %}
+				<div class="computadora align-items-center">
+					<img src="{{ computadora.imagen.url }}" alt="{{ computadora.titulo }}">
+					<h3>{{computadora.titulo}}</h3>
+					<p>{{computadora.descripcion}}</p>
+					<p>Precio: ${{computadora.precio}}</p>
+					<button>Añadir al carrito</button>
+				</div>
+				{% endif %}
+				{%endfor%}
 		</section>
 		<section id="contacto">
 			<h2>Contacto</h2>

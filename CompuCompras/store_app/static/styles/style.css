@@ -73,6 +73,29 @@ h2 {
 	margin-top: 0;
 }
 
+.cuadricula-de-computadoras {
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 20px;
+	column-gap: 70px;
+}
+@media (max-width: 500px) {
+	.cuadricula-de-computadoras {
+		grid-template-columns: 1fr;
+	}
+}
+@media (min-width: 501px) and (max-width: 850px) {
+	.cuadricula-de-computadoras {
+		grid-template-columns: 1fr 1fr;
+		column-gap: 40px;
+	}
+}
+@media (min-width: 851px) and (max-width: 1107px) {
+	.cuadricula-de-computadoras {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
 .computadora {
 	display: flex;
 	flex-direction: column;

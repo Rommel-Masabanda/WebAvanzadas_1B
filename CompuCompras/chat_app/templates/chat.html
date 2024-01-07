@@ -1,0 +1,21 @@
+{% extends 'base_f.html' %}
+
+{% block chat %}
+    {# No incluir el bloque del chat en esta plantilla #}
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="chat-div">
+            <section id="chat" class="chat-container">
+                <ul id="messages"></ul>
+                <form id="message-form">
+                    <input type="text" id="message-input" placeholder="Type your message...">
+                    <div class="btn-send-message-div">
+                        <button class="btn-send-message" type="submit">Send</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+{% endblock %}

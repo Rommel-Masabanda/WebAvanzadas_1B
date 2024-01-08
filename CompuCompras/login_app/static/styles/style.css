@@ -33,6 +33,12 @@ ul {
 	display: flex;
 }
 
+ul .errorlist{
+	display: block;
+	color: red;
+}
+
+
 .nav-local li {
 	margin-right: 20px;
 	padding: 10px 0px;
@@ -169,4 +175,10 @@ footer {
 .banner img {
     height: 100%;
     width: 100%;
+}
+
+/* Mensaje de error en el registro */
+.errorlist{
+	display: block;
+	color: red;
 }

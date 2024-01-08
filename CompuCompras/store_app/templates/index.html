@@ -14,8 +14,14 @@
 	<section id="destacados" class="d-flex justify-content-around">
 		{% if request.user.is_authenticated %}
 		<p>Bienvenido, {{ request.user.username }}</p>
+		<div class="contenedor-bienvenida">	
+			<p class="mensaje-bienvenida">Bienvenido, {{ request.user.username }}</p>
+		</div>
 		{% else %}
 		<p>No has iniciado sesión.</p>
+		<div class="contenedor-bienvenida">
+			<p class="mensaje-bienvenida">No has iniciado sesión.</p>
+		</div>
 		{% endif %}
 
 		<div class="cuadricula-de-computadoras">

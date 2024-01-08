@@ -40,6 +40,9 @@ class VRegistrase(View):
     
     def post(self, request):
         form = UserCreationForm(request.POST)
+        form.fields['username'].help_text = ''
+        form.fields['password1'].help_text = ''
+        form.fields['password2'].help_text = ''
         if form.is_valid():
             usuario = form.save()
             login(request, usuario)

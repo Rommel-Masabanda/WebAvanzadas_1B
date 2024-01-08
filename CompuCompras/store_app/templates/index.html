@@ -1,7 +1,5 @@
 {%extends 'base_f.html'%}
 
-
-<<<<<<< HEAD
 {% block content %}
 <!-- Boton Chat -->
 
@@ -20,6 +18,7 @@
 		<p>No has iniciado sesión.</p>
 		{% endif %}
 
+		<div class="cuadricula-de-computadoras">
 		{%for computadora in productos%}
 		{% if computadora.categoria == "destacada" %}
 		<div class="computadora align-items-center">
@@ -44,6 +43,7 @@
 		</div>
 		{% endif %}
 		{%endfor%}
+		</div>
 
 	</section>
 	<section id="contacto">

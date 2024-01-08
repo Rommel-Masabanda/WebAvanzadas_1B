@@ -76,7 +76,7 @@ h2 {
 .cuadricula-de-computadoras {
 	margin-top: 20px;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: 20px;
 	column-gap: 70px;
 }
@@ -254,13 +254,16 @@ footer {
 	justify-content: space-between;
 	align-items: center;
 	gap: 10%;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 }
 .img-producto-compra{
-	width: 100px;
+	width: 150px;
 }
-.img-producto-compra>.img{
-	width: 99px;
+.imagen-pc-comprar{
+	width: 140px;
+	height: 140px;
+	object-fit: cover;
+
 }
 .info-producto-compra{
 	width: 400px;

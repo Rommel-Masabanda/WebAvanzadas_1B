@@ -17,11 +17,16 @@ class Producto(models.Model):
         return self.titulo
     
 class Carrito(models.Model):
-    productos = models.ManyToManyField(Producto)
+    productos = models.ManyToManyField(Producto, through='CarritoProducto')
     usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
-    total = models.DecimalField(max_digits=10, decimal_places=2)
-    cantidad_productos = models.IntegerField()
+    total = models.DecimalField(max_digits=10, decimal_places=2, null=True, default=0)
+    
+    cantidad_productos = models.IntegerField(default=0, null=True)
     def __str__(self):
         return str(self.productos)
-        
+
+class CarritoProducto(models.Model):
+    carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField(default=0)
     

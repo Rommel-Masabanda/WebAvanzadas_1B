@@ -37,9 +37,9 @@ def agregar(request):
     carrito.cantidad_productos += 1
     carrito.save()
     
-    return redirect('/')
+    return redirect(request.META.get('HTTP_REFERER', '/'))
     
 def get_carrito(request):
     carritos = Carrito.objects.filter(usuario=request.user).prefetch_related('productos')
-    prueba = 1
-    return render(request, 'carrito.html', {'carritos': carritos, 'prueba': prueba})
+    banners = Banner.objects.all()
+    return render(request, 'carrito.html', {'carritos': carritos, 'banners': banners})

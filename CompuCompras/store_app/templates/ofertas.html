@@ -6,17 +6,31 @@
         <section id="novedades" class="d-flex justify-content-around">
 			<div class="cuadricula-de-computadoras">
 				{%for computadora in productos%}
-				{% if computadora.categoria == "oferta" %}
+				{% if computadora.categoria == "ofertas" %}
 				<div class="computadora align-items-center">
 					<img src="{{ computadora.imagen.url }}" alt="{{ computadora.titulo }}">
 					<h3>{{computadora.titulo}}</h3>
 					<p>{{computadora.descripcion}}</p>
 					<p>Precio: ${{computadora.precio}}</p>
-					<button>Añadir al carrito</button>
+		
+					{% if user.is_authenticated %}
+					<form action="/agregar_al_carrito/" method="post"
+						style="padding: 0%; border: 0cap;  background: none; display: flex; justify-content: center;">
+						{% csrf_token %}
+						<input type="hidden" name="producto_id" value="{{ computadora.id }}">
+						<button type="submit">Añadir al carrito</button>
+					</form>
+					{% else %}
+					<a href="{% url 'login' %}">
+						<button type="submit">Añadir al carrito</button>
+					</a>
+					{% endif %}
+		
 				</div>
 				{% endif %}
 				{%endfor%}
-			</div>
+				</div>
+		
 		</section>
         <section id="contacto">
             <h2>Contacto</h2>

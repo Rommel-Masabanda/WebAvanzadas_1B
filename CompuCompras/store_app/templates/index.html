@@ -2,7 +2,7 @@
 
 {% block content %}
 <!-- Boton Chat -->
-
+<!-- 
 <style>
 	.message {
   font-size: 24px;
@@ -19,11 +19,16 @@
 
 
 
-</style>
+</style> -->
 <main>
 
+	<div class="banner">
+		<a href="https://www.example.com " target="_blank">
+			<img id="carousel" src="" alt="">
+		</a>
+	</div>
+
 	<h2>Computadoras destacadas</h2>
-	
 
 	<img src="{{ banners.imagen.url }}" alt="">
 	
@@ -35,10 +40,6 @@
 		{% if request.user.is_authenticated %}
 		<div class="contenedor-bienvenida">	
 			<p class="mensaje-bienvenida">Bienvenido, {{ request.user.username }}</p>
-		</div>
-		{% else %}
-		<div class="contenedor-bienvenida">
-			<p class="mensaje-bienvenida">No has iniciado sesión.</p>
 		</div>
 		{% endif %}
 		<div class="cuadricula-de-computadoras">

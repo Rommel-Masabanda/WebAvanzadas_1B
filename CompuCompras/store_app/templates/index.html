@@ -3,46 +3,62 @@
 {% block content %}
 <!-- Boton Chat -->
 
+<style>
+	.message {
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 5px;
+  right: 0px;
+  font-family: 'Arial', sans-serif;
+}
 
-<div class="banner">
-	<a href="https://www.example.com " target="_blank">
-		<img id="carousel" src="" alt="">
-	</a>
-</div>
+.authenticated {
+  color: black; /* Verde oscuro */
+  font-weight: bold;
+}
+
+
+
+</style>
 <main>
+
 	<h2>Computadoras destacadas</h2>
+	
+
+	<img src="{{ banners.imagen.url }}" alt="">
+	
+	{% if request.user.is_authenticated %}
+		<p class="message authenticated">Bienvenido, {{ request.user.username }}</p>
+	{% endif %}
+
 	<section id="destacados" class="d-flex justify-content-around">
-		{% if request.user.is_authenticated %}
-		<p>Bienvenido, {{ request.user.username }}</p>
-		{% else %}
-		<p>No has iniciado sesión.</p>
-		{% endif %}
+		
 
 		<div class="cuadricula-de-computadoras">
-		{%for computadora in productos%}
-		{% if computadora.categoria == "destacada" %}
-		<div class="computadora align-items-center">
-			<img src="{{ computadora.imagen.url }}" alt="{{ computadora.titulo }}">
-			<h3>{{computadora.titulo}}</h3>
-			<p>{{computadora.descripcion}}</p>
-			<p>Precio: ${{computadora.precio}}</p>
+			{%for computadora in productos%}
+			{% if computadora.categoria == "destacada" %}
+			<div class="computadora align-items-center">
+				<img src="{{ computadora.imagen.url }}" alt="{{ computadora.titulo }}">
+				<h3>{{computadora.titulo}}</h3>
+				<p>{{computadora.descripcion}}</p>
+				<p>Precio: ${{computadora.precio}}</p>
 
-			{% if user.is_authenticated %}
-			<form action="/agregar_al_carrito/" method="post"
-				style="padding: 0%; border: 0cap;  background: none; display: flex; justify-content: center;">
-				{% csrf_token %}
-				<input type="hidden" name="producto_id" value="{{ computadora.id }}">
-				<button type="submit">Añadir al carrito</button>
-			</form>
-			{% else %}
-			<a href="{% url 'login' %}">
-				<button type="submit">Añadir al carrito</button>
-			</a>
+				{% if user.is_authenticated %}
+				<form action="/agregar_al_carrito/" method="post"
+					style="padding: 0%; border: 0cap;  background: none; display: flex; justify-content: center;">
+					{% csrf_token %}
+					<input type="hidden" name="producto_id" value="{{ computadora.id }}">
+					<button type="submit">Añadir al carrito</button>
+				</form>
+				{% else %}
+				<a href="{% url 'login' %}">
+					<button type="submit">Añadir al carrito</button>
+				</a>
+				{% endif %}
+
+			</div>
 			{% endif %}
-
-		</div>
-		{% endif %}
-		{%endfor%}
+			{%endfor%}
 		</div>
 
 	</section>
@@ -55,5 +71,5 @@
 </main>
 
 
-{% endblock %}
 
+{% endblock %}

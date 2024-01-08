@@ -1,3 +1,4 @@
+
 var images = [
     { src: "./imagenes/uno.jpg", alt: "Image 1" },
     { src: "/imagenes/dos.jpg", alt: "Image 2" },

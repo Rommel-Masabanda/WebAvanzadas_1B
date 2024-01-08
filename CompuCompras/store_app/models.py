@@ -29,4 +29,8 @@ class CarritoProducto(models.Model):
     carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField(default=0)
+
+class Banner(models.Model):
+    imagen = models.ImageField(upload_to="banners", null=True, blank=True)
+    alt = models.CharField(max_length=100, null=True)
     

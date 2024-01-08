@@ -5,31 +5,38 @@
 
 <div class="informacion-compra">
     <div class="lista-productos">
+        <p>{{carritos.cantidad_productos}}</p>
         {% for carrito in carritos %}
-            {% for carrito_producto in carrito.carritoproducto_set.all %}
-                <!-- Producto -->
-                <div class="producto-item">
-                    <div class="img-producto-compra">
-                        <img class="imagen-pc-comprar" src="{{ carrito_producto.producto.imagen.url }}" alt="{{ carrito_producto.producto.titulo }}">
-                    </div>
-                    <div class="info-producto-compra">
-                        <h3>{{ carrito_producto.producto.titulo }}</h3>
-                        <p>{{ carrito_producto.producto.descripcion }}</p>
-                        <p>Precio: ${{ carrito_producto.producto.precio }}</p>
-                        <p>Cantidad: {{ carrito_producto.cantidad }}</p>
-                    </div>
-                    <div class="btn-eliminar-div">
-                        <button class="btn-eliminar-compra">Eliminar</button>
-                    </div>
-                </div>
-            {% endfor %}
-        {% endfor %}            
-    </div>  
+        {% for carrito_producto in carrito.carritoproducto_set.all %}
+
+        <!-- Producto -->
+        <div class="producto-item">
+            <div class="img-producto-compra">
+                <img class="imagen-pc-comprar" src="{{ carrito_producto.producto.imagen.url }}"
+                    alt="{{ carrito_producto.producto.titulo }}">
+            </div>
+            <div class="info-producto-compra">
+                <h3>{{ carrito_producto.producto.titulo }}</h3>
+                <p>{{ carrito_producto.producto.descripcion }}</p>
+                <p>Precio: ${{ carrito_producto.producto.precio }}</p>
+                <p>Cantidad: {{ carrito_producto.cantidad }}</p>
+            </div>
+            <div class="btn-eliminar-div">
+                <button class="btn-eliminar-compra">Eliminar</button>
+            </div>
+        </div>
+
+        {% endfor %}
+        {% endfor %}
+    </div>
 
     <div class="total-compra">
-        
-        <p class="total-cantidad">Cantidad de artículos = {{prueba}}</p>
-        <p class="total-final">TOTAL: ${{carritos.total}}</p>
+
+        {% for carrito in carritos %}
+        <p class="total-cantidad">Cantidad de artículos = {{ carrito.cantidad_productos }}</p>
+        <p class="total-final">TOTAL: ${{carrito.total}}</p>
+        {% endfor %}
+
     </div>
 </div>
 
@@ -38,7 +45,9 @@
 </div>
 <section id="contacto">
     <h2>Contacto</h2>
-    <p>Puedes contactarnos a través de nuestro correo electrónico <a href="mailto:ventas@computadoras.com">ventas@computadoras.com</a> o a través de nuestro número de teléfono 555-555-5555.</p>
+    <p>Puedes contactarnos a través de nuestro correo electrónico <a
+            href="mailto:ventas@computadoras.com">ventas@computadoras.com</a> o a través de nuestro número de teléfono
+        555-555-5555.</p>
 </section>
 
 {% endblock %}

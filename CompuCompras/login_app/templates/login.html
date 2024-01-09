@@ -6,7 +6,9 @@
             {% csrf_token %}
 			{{form}}
     		<button type="submit">Iniciar Sesión</button>
+            <div><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></div>
         </form>
+        
     </main>
 	
-	{%endblock%}
+    {%endblock%}

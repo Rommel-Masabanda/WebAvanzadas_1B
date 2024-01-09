@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import UserCreationFormCustom
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
+from django import forms
+
 
 
 # Create your views here.
@@ -32,14 +35,16 @@ class VLogearse(View):
 
 class VRegistrase(View):
     def get(self, request):
-        form = UserCreationForm()
+        
+        form = UserCreationFormCustom()
         form.fields['username'].help_text = ''
         form.fields['password1'].help_text = ''
         form.fields['password2'].help_text = ''
         return render(request, "sign-up.html", {"form": form})
     
     def post(self, request):
-        form = UserCreationForm(request.POST)
+        
+        form = UserCreationFormCustom(request.POST)
         form.fields['username'].help_text = ''
         form.fields['password1'].help_text = ''
         form.fields['password2'].help_text = ''

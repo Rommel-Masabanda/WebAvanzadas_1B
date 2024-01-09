@@ -62,8 +62,7 @@
 				<li>
 
 					<a href="{%if user.is_authenticated %}{% url 'carrito' %}{% else %}{% url 'login' %}{% endif %}">
-						<button><img class="icon" src="{%static 'images/shopping-cart.png'%}" alt="shopping-cart"><span
-								class="position-absolute top-1 start-5 translate-middle badge rounded-pill bg-danger">+3</span>
+						<button><img class="icon" src="{%static 'images/shopping-cart.png'%}" alt="shopping-cart">
 						</button>
 					</a>
 				</li>

@@ -60,6 +60,7 @@ def eliminar(request):
         
         if cantidad_producto > 1:
             item_carrito.cantidad -= 1
+            carrito.cantidad_productos -= 1  
             item_carrito.save()
         else:
             item_carrito.delete()

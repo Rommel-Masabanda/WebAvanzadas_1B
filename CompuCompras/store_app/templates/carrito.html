@@ -22,7 +22,12 @@
                 <p>Cantidad: {{ carrito_producto.cantidad }}</p>
             </div>
             <div class="btn-eliminar-div">
-                <button class="btn-eliminar-compra">Eliminar</button>
+                <form action="{% url 'eliminar' %}" method="post" style="padding: 0%; border: 0cap;  background: none; display: flex; justify-content: center;">
+                    {% csrf_token %}
+                    <input type="hidden" name="item_carrito_id" value="{{ carrito_producto.id }}">
+                    <button type="submit">Eliminar</button>
+                </form>
+                
             </div>
         </div>
 

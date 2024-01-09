@@ -15,6 +15,40 @@
 		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
+<style>
+	.alert-container {
+		position: fixed;
+		top: 20px;
+		/* Ajusta la distancia desde la parte superior */
+		left: 20px;
+		/* Ajusta la distancia desde la izquierda */
+		z-index: 9999;
+		/* Asegura que esté encima de otros elementos */
+	}
+
+	.alert-message {
+		background-color: #8BC34A;
+		/* Color verde lechuga */
+		color: #000;
+		/* Letras negras */
+		padding: 10px;
+		border-radius: 5px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		/* Sombra suave */
+	}
+
+	.close {
+		float: right;
+		/* Alinea el botón de cierre a la derecha */
+		margin: -5px -10px 0 0;
+		/* Ajusta el margen para el botón de cierre */
+		background: none;
+		border: none;
+		font-size: 20px;
+		cursor: pointer;
+	}
+</style>
+
 <body>
 
 	<header>
@@ -71,13 +105,24 @@
 
 
 	</header>
+	{% if messages %}
+	<div class="alert-container">
+		{% for message in messages %}
+		<div class="alert-message">
+			<strong>{{ message }}</strong>
+		</div>
+		{% endfor %}
+	</div>
+	{% endif %}
 	{%block content%} {%endblock%}
 	<footer>
 		<p>Copyright 2023, Compu Compras S.A. Todos los derechos reservados.</p>
 	</footer>
 
-    <script source="{% static 'scripts/sc.js' %}"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+	<script source="{% static 'scripts/sc.js' %}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+		crossorigin="anonymous"></script>
 	<script>
 		/* Cargar imagenes en el carrusel */
 		var images = [
@@ -87,13 +132,23 @@
 		];
 		var imageIndex = 0;
 		var carousel = document.getElementById("carousel");
-		setInterval(function() {
+		setInterval(function () {
 			carousel.src = images[imageIndex].src;
 			carousel.alt = images[imageIndex].alt;
 			imageIndex = (imageIndex + 1) % images.length;
 		}, 2000);
 	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const alertContainer = document.querySelector(".alert-container");
+			if (alertContainer) {
+				setTimeout(function () {
+					alertContainer.style.display = "none"; // Oculta el mensaje después de 2 segundos
+				}, 2000);
+			}
+		});
 
+	</script>
 </body>
 
 </html>

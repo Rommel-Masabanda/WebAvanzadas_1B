@@ -20,6 +20,8 @@
 
 
 </style> -->
+
+
 <main>
 
 	<div class="banner">
@@ -31,14 +33,14 @@
 	<h2>Computadoras destacadas</h2>
 
 	<img src="{{ banners.imagen.url }}" alt="">
-	
+
 	{% if request.user.is_authenticated %}
-		<p class="message authenticated">Bienvenido, {{ request.user.username }}</p>
+	<p class="message authenticated">Bienvenido, {{ request.user.username }}</p>
 	{% endif %}
 
 	<section id="destacados" class="d-flex justify-content-around">
 		{% if request.user.is_authenticated %}
-		<div class="contenedor-bienvenida">	
+		<div class="contenedor-bienvenida">
 			<p class="mensaje-bienvenida">Bienvenido, {{ request.user.username }}</p>
 		</div>
 		{% endif %}
@@ -68,6 +70,7 @@
 			{% endif %}
 			{%endfor%}
 		</div>
+		
 
 	</section>
 	<section id="contacto">

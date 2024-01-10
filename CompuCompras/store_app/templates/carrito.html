@@ -40,18 +40,24 @@
         {% for carrito in carritos %}
         <p class="total-cantidad">Cantidad de artículos = {{ carrito.cantidad_productos }}</p>
         <p class="total-final">TOTAL: ${{carrito.total}}</p>
+        {%if carrito.total != 0%}
+        <div class="btn-comprar-div">
+            
+
+            <form id="btn-conf-compra" action="{% url 'comprar' %}" method="post" style="padding: 0%; border: 0cap;  background: none; display: flex; justify-content: center;">
+                {% csrf_token %}
+                <input type="hidden" name="item_carrito_id" value="{{ carrito.id }}">
+                <button type="submit">Aceptar compra</button>
+            </form>
+
+        </div>
+        {%endif%}
         {% endfor %}
 
     </div>
 </div>
 
-<div class="btn-comprar-div">
-    
-    
-        <button id="btn-conf-compra">Aceptar compra</button>
-    
-    
-</div>
+
 <section id="contacto">
     <h2>Contacto</h2>
     <p>Puedes contactarnos a través de nuestro correo electrónico <a

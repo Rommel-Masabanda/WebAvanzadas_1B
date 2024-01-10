@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import *
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -39,6 +40,7 @@ def agregar(request):
     messages.success(request, 'Añadido al carrito')
     return redirect(request.META.get('HTTP_REFERER', '/'))
     
+@login_required
 def get_carrito(request):
     carritos = Carrito.objects.filter(usuario=request.user).prefetch_related('productos')
     banners = Banner.objects.all()

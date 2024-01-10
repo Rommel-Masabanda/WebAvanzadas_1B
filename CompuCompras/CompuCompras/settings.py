@@ -147,4 +147,4 @@ EMAIL_HOST_USER="zambranoalexander2541@gmail.com"
 EMAIL_HOST_PASSWORD="wawx dfhk aony rirc"
 
 
-
+LOGIN_URL = '/login'

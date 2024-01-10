@@ -96,7 +96,7 @@
 		<!-- Bloque para el botón de chat -->
 		<div class="chat-div">
 			<button>
-				<a href="{% url 'chat' %}"><img class="img-chat" src="https://img.icons8.com/ios/50/chat.png"
+				<a href="{%if user.is_authenticated %}{% url 'chat' %}{% else %}{% url 'login' %}{% endif %}"><img class="img-chat" src="https://img.icons8.com/ios/50/chat.png"
 						alt="chat" /></a>
 			</button>
 		</div>

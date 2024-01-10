@@ -8,7 +8,17 @@
     <main>
         <div class="chat-div">
             <section id="chat" class="chat-container">
-                <ul id="messages" style="display: block;"></ul>
+                <ul id="messages" style="display: block;">
+                    {% for mensaje in todos_los_mensajes %}
+
+                        <li>
+                            <div style="font-weight: bold;">Enviado por {{ mensaje.usuario.username }}:</div>
+                            <div>{{ mensaje.mensaje }}</div>
+                        </li>
+
+                    {% endfor %}
+                
+                </ul>
                 <form id="message-form">
                     <input type="text" id="message" placeholder="Type your message...">
                     <div class="btn-send-message-div">
@@ -30,9 +40,23 @@
 
             if(data.type === 'chat'){
                 
-                const item = document.createElement('li'); 
-                item.textContent = data.message; 
-                document.querySelector('#messages').appendChild(item)
+                const item = document.createElement('li');
+                const username = data.username || 'Usuario Anónimo';
+
+                // Crear elementos para el nombre de usuario y el mensaje
+                const userElement = document.createElement('div');
+                userElement.textContent = `Enviado por ${username}: `;
+                userElement.style.fontWeight = 'bold';
+
+                const messageElement = document.createElement('div');
+                messageElement.textContent = data.message;
+
+                // Adjuntar elementos al li
+                item.appendChild(userElement);
+                item.appendChild(messageElement);
+
+                // Agregar el li a la lista de mensajes
+                document.querySelector('#messages').appendChild(item);
             }
         }
 

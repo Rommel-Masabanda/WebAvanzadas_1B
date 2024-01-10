@@ -72,3 +72,18 @@ def eliminar(request):
         
         messages.success(request, 'Producto eliminado del carrito')
         return redirect(request.META.get('HTTP_REFERER', '/'))
+
+
+def comprar(request):
+    if request.method == 'POST':
+        item_carrito_id = request.POST.get('item_carrito_id')
+        carrito = get_object_or_404(Carrito, id=item_carrito_id)
+        carrito.productos.clear()
+        
+        carrito.total = 0
+        carrito.cantidad_productos = 0
+        
+        carrito.save()
+        
+        messages.success(request, 'Compra realizada')
+        return redirect(request.META.get('HTTP_REFERER', '/'))

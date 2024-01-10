@@ -183,3 +183,10 @@ footer {
 	color: red;
 }
 
+
+/* Mensaje de error en el registro */
+.helptext ul{
+	display: block;
+	color: red;
+}
+

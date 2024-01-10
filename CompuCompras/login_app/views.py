@@ -37,16 +37,13 @@ class VRegistrase(View):
     def get(self, request):
         
         form = UserCreationFormCustom()
-        form.fields['username'].help_text = ''
-        form.fields['password1'].help_text = ''
         form.fields['password2'].help_text = ''
         return render(request, "sign-up.html", {"form": form})
     
     def post(self, request):
         
         form = UserCreationFormCustom(request.POST)
-        form.fields['username'].help_text = ''
-        form.fields['password1'].help_text = ''
+        
         form.fields['password2'].help_text = ''
         if form.is_valid():
             usuario = form.save()

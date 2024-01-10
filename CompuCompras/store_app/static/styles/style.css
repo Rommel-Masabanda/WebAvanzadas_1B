@@ -343,3 +343,22 @@ footer {
 	display: block;
 	color: red;
 }
+
+/* Mensaje de error en el registro */
+.helptext ul{
+	display: block;
+	padding: 0;
+	font-style: oblique;
+}
+
+.helptext{
+	display: block;
+	padding: 0;
+	font-style: oblique;
+}
+
+.formulario_password ul{
+	display: block;
+	padding: 0;
+	font-style: oblique;
+}

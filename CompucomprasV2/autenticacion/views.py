@@ -4,6 +4,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 class RegistroUsuario(APIView):
+    def get(self, request):
+        return Response({'error': 'Esta función no está disponible'}, status=status.HTTP_400_BAD_REQUEST)
+
     def post(self, request):
         # Obtener los datos enviados en la solicitud POST
         username = request.data.get('username')
@@ -22,3 +25,14 @@ class RegistroUsuario(APIView):
         
         # Devolver una respuesta exitosa
         return Response({'message': 'Usuario registrado exitosamente'}, status=status.HTTP_201_CREATED)
+
+    def put(self, request):
+        return Response({'error': 'Esta función no está disponible'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    def patch(self, request):
+        return Response({'error': 'Esta función no está disponible'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request):
+        return Response({'error': 'Esta función no está disponible'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    

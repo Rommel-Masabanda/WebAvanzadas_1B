@@ -14,11 +14,11 @@ import { ProductService } from '../../../../services/product.service';
 export class ListProductComponent {
   
   constructor(private router: ActivatedRoute, private productService:ProductService) { }
-  mensaje = "a";
+  category = "";
   
     private type = this.router.params.subscribe(params => {
-      console.log(params['id']);
-      this.mensaje = params['id'];
+      console.log(params['category']);
+      this.category = params['category'];
       this.productService.getProducts().subscribe(
         (productos) => this.productos = productos
       )

@@ -1,0 +1,22 @@
+<nav>
+  <div class="top-nav">
+    <div class="welcome-text">Bienvenidos a nuestra tienda de computadoras</div>
+    <div class="user-cart-buttons">
+      <button class="cart-button">Mis compras</button>
+      <button class="user-button">Logout</button>
+    </div>
+  </div>
+  <div class="bottom-nav">
+    <ul>
+      <li><a [routerLink]="'destacadas'">Computadoras destacadas</a></li>
+      <li><a [routerLink]="'ofertas'">Ofertas especiales</a></li>
+      <li><a [routerLink]="'novedades'">Novedades</a></li>
+      <li><a href="#contacto" (click)="scrollToContact()">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+<footer id="contacto">
+  <p>Puedes contactarnos a través de nuestro correo electrónico <a href="mailto:ventas@computadoras.com">ventas&#64;computadoras.com</a> o a través de nuestro número de teléfono <a href="tel:555-555-5555">555-555-5555</a>.</p>
+  <p style="color: white; text-align: center;">Copyright 2023, Compu Compras S.A. Todos los derechos reservados.</p>
+</footer>

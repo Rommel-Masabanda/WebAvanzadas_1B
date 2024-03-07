@@ -7,7 +7,7 @@ import { ProductoGet } from '../models/producto/productoGet';
   providedIn: 'root'
 })
 export class ProductService {
-  private readonly = `${environment.apiUrl}producto`;
+  private readonly = `${environment.apiUrl}producto/`;
   constructor(private http: HttpClient) { }
 
   getProducts():Observable<ProductoGet[]> {

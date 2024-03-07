@@ -1,0 +1,44 @@
+
+<form id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+      <p><b>Login</b></p>
+    </div>
+      <div class="form-group">
+          <label for="username">Nombre de usuario:</label>
+          <input type="text" class="form-control" id="username" placeholder="Nombre de usuario" aria-required="true"
+              [class.is-invalid]="
+            usernameFormControl.touched && usernameFormControl.invalid
+          " formControlName="usernameFormControl" />
+          @if (usernameFormControl.touched && usernameFormControl.invalid) {
+          <div class="invalid-feedback">
+              @if (usernameFormControl.errors?.['required']) {
+              <div>Por favor, ingresa tu nombre de usuario.</div>
+              }
+          </div>
+          }
+      </div>
+  
+      <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <input type="password" class="form-control" id="password" placeholder="Contraseña" aria-required="true"
+              formControlName="passwordFormControl" [class.is-invalid]="
+            passwordFormControl.touched && passwordFormControl.invalid
+          " />
+          @if (passwordFormControl.touched && passwordFormControl.invalid) {
+          <div class="invalid-feedback">
+              @if (passwordFormControl.errors?.['required']) {
+              <div>Por favor, ingresa la contraseña.</div>
+              }
+          </div>
+          }
+      </div>
+      <div class="button-group">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="loginForm.invalid">
+            Iniciar Sesion
+          </button>
+        </div>
+      
+  </form>

@@ -7,6 +7,11 @@ export const routes: Routes = [
     },
    
     {
+        path: '',
+        loadChildren: () => import('./modules/user/routes').then(m => m.routes)
+    },
+
+    {
         path: '**',
         redirectTo: 'productos/destacada'
     }

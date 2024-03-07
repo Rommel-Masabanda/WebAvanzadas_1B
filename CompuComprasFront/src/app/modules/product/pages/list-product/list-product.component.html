@@ -6,11 +6,7 @@
     </div>
 }
 <div class="products">
-<app-info-product></app-info-product>
-<app-info-product></app-info-product>
-<app-info-product></app-info-product>
-<app-info-product></app-info-product>
-<app-info-product></app-info-product>
-<app-info-product></app-info-product>
-<app-info-product></app-info-product>
+@for (item of productos; track $index) {
+    <app-info-product></app-info-product>
+}
 </div>

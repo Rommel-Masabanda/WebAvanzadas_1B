@@ -1,12 +1,14 @@
 
-@if (mensaje=="destacadas") {
+@if (category=="destacada") {
     <div class="banner">
     <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/new-arrival-laptop-banner-design-template-8d07b7c4a51b16d4450580b11d1f2b57_screen.jpg?ts=1698478917" alt=""
     style="width:100%; height: 300px">
     </div>
 }
 <div class="products">
-@for (item of productos; track $index) {
-    <app-info-product></app-info-product>
+@for (product of productos; track $index) {
+    @if (product.categoria==category) {
+    <app-info-product [producto] = "product"></app-info-product>
+}
 }
 </div>

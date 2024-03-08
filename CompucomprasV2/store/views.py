@@ -1,6 +1,6 @@
 from rest_framework import status, viewsets
-from .models import Producto, CarritoProducto, Carrito, Banner
-from .serializer import ProductoSerializer, CarritoProductoSerializer, CarritoSerializer, BannerSerializer
+from .models import Producto, CarritoProducto, Carrito
+from .serializer import ProductoSerializer, CarritoProductoSerializer, CarritoSerializer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.shortcuts import get_object_or_404
@@ -86,11 +86,12 @@ class ObtenerCarrito(APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request, *args, **kwargs):
         carritos = Carrito.objects.filter(usuario=request.user).prefetch_related('productos')
-        
+        carritoProducto = CarritoProducto.objects.all()
         carritos_serializer = CarritoSerializer(carritos, many=True)
-        
+        carritoproducto_serializer = CarritoProductoSerializer(carritoProducto, many=True)
         data = {
             'carritos': carritos_serializer.data,
+            'carrito_productos': carritoproducto_serializer.data
         }
 
         ActivityLog.objects.create(user=request.user, action='Usuario consumió el servicio Obtener Carrito')

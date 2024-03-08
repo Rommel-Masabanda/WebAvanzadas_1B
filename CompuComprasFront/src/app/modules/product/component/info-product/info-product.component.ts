@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { NavbarComponent } from '../../../../shared/navbar/navbar.component';
 import { ProductoGet } from '../../../../models/producto/productoGet';
-
+import { CarritoService } from '../../../../services/carrito.service';
+import { ProductoAddDTO } from '../../../../models/producto/productoAddDTO';
 @Component({
   selector: 'app-info-product',
   standalone: true,
@@ -18,4 +19,15 @@ export class InfoProductComponent {
     categoria: "",
     imagen: ""
   };
+
+  constructor(private carritoService: CarritoService) { }
+
+  agregarAlCarrito(id: number) {
+    const product: ProductoAddDTO = {
+      producto_id: id,
+      cantidad: 1
+    }
+    this.carritoService.saveCarrito(product).subscribe()
+  }
+
 }

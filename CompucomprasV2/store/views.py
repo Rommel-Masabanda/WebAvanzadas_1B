@@ -86,12 +86,11 @@ class ObtenerCarrito(APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request, *args, **kwargs):
         carritos = Carrito.objects.filter(usuario=request.user).prefetch_related('productos')
-        banners = Banner.objects.all()
+        
         carritos_serializer = CarritoSerializer(carritos, many=True)
-        banners_serializer = BannerSerializer(banners, many=True)
+        
         data = {
             'carritos': carritos_serializer.data,
-            'banners': banners_serializer.data
         }
 
         ActivityLog.objects.create(user=request.user, action='Usuario consumió el servicio Obtener Carrito')

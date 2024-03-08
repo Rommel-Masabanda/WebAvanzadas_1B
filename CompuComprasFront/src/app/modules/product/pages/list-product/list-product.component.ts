@@ -4,6 +4,8 @@ import { InfoProductComponent } from '../../component/info-product/info-product.
 import { ActivatedRoute } from '@angular/router';
 import { ProductoGet } from '../../../../models/producto/productoGet';
 import { ProductService } from '../../../../services/product.service';
+import { CarritoService } from '../../../../services/carrito.service';
+import { cartDTO } from '../../../../models/carrito/cartDTO';
 @Component({
   selector: 'app-list-product',
   standalone: true,
@@ -13,9 +15,10 @@ import { ProductService } from '../../../../services/product.service';
 })
 export class ListProductComponent {
   
-  constructor(private router: ActivatedRoute, private productService:ProductService) { }
+  constructor(private router: ActivatedRoute, private productService:ProductService, private cartService:CarritoService) { }
   category = "";
-  
+
+    productos: ProductoGet[] = []
     private type = this.router.params.subscribe(params => {
       console.log(params['category']);
       this.category = params['category'];
@@ -23,11 +26,16 @@ export class ListProductComponent {
         (productos) => this.productos = productos
       )
     })  
+
+    ngOnInit(){
+      this.getCarrito();
+    }
   
-    productos: ProductoGet[] = []
-    
-    
-  
+    getCarrito(){
+      this.cartService.getCarrito().subscribe((carrito) => {
+        const cartDTO: cartDTO = carrito;
+        console.log(cartDTO.carritos[0].id);});
+    }
   
   
 }

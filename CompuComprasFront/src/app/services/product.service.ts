@@ -15,4 +15,8 @@ export class ProductService {
   getProducts():Observable<ProductoGet[]> {
     return this.http.get<ProductoGet[]>(this.readonly, {headers: {'Authorization': `Bearer ${getTokenLS()}`}});
   }
+
+  getProduct(id: number):Observable<ProductoGet> {
+    return this.http.get<ProductoGet>(`${this.readonly}${id}`, {headers: {'Authorization': `Bearer ${getTokenLS()}`}});
+  }
 }

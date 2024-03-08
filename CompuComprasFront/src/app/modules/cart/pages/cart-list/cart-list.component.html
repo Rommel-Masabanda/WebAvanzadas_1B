@@ -1,5 +1,7 @@
 <div class="cart-info">
-<app-cart-info></app-cart-info>
-<app-cart-info></app-cart-info>
-<app-cart-info></app-cart-info>
+@for (item of carritoList; track $index) {
+    @if(item.carrito == id){
+        <app-cart-info [item] = "item"></app-cart-info>    
+    }
+}
 </div>

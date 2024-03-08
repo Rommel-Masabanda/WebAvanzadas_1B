@@ -2,8 +2,8 @@
   <div class="top-nav">
     <div class="welcome-text">Bienvenidos a nuestra tienda de computadoras</div>
     <div class="user-cart-buttons">
-      <button class="cart-button">Mis compras</button>
-      <button class="user-button">Logout</button>
+      <button class="cart-button" routerLink="carrito">Mis compras</button>
+      <button class="user-button" (click)="logout()">Logout</button>
     </div>
   </div>
   <div class="bottom-nav">
@@ -11,7 +11,6 @@
       <li><a [routerLink]="'destacada'">Computadoras destacadas</a></li>
       <li><a [routerLink]="'ofertas'">Ofertas especiales</a></li>
       <li><a [routerLink]="'novedades'">Novedades</a></li>
-      <li><a href="#contacto" >Contacto</a></li>
     </ul>
   </div>
 </nav>

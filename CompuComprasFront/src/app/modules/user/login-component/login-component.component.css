@@ -27,3 +27,13 @@ p{
     font-size: 30px;
     margin-top: 0px;
 }
+
+.register{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.registerDiv{
+    text-align: center;
+    margin-top: 20px;
+}

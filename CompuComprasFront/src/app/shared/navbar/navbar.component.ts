@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink} from '@angular/router';
+import { RouterOutlet, RouterLink, Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -9,5 +9,11 @@ import { RouterOutlet, RouterLink} from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+
+    constructor(private router: Router) { }
     
+    logout(){
+        localStorage.clear();
+        this.router.navigate(['']);
+    }
 }

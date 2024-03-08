@@ -26,7 +26,8 @@ class ProductoViewSet(viewsets.ModelViewSet):
         return Response({'error': 'Esta función no está disponible'}, status=status.HTTP_400_BAD_REQUEST)
 
     def retrieve(self, request, *args, **kwargs):
-        return Response({'error': 'Esta función no está disponible'}, status=status.HTTP_400_BAD_REQUEST)
+        ActivityLog.objects.create(user=request.user, action='Usuario consumió el servicio Obtener Producto por ID')
+        return super().retrieve(request, *args, **kwargs)
 
     def update(self, request, *args, **kwargs):
         return Response({'error': 'Esta función no está disponible'}, status=status.HTTP_400_BAD_REQUEST)
